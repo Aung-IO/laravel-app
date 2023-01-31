@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Tests\Fixtures\Model;
 
 class User extends Authenticatable
 {
@@ -43,8 +44,11 @@ class User extends Authenticatable
     ];
 
     // a user has many blogs
-    public function blog()
+    public function blogs()
     {
         return $this->hasMany(Blog::class);
     }
+   
 }
+
+
