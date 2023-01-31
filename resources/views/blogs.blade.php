@@ -18,7 +18,7 @@
 
         <p>{{$blog->body}}</p>
 
-        <p>Uploaded by User</p>
+        <p>Uploaded by - <a href="/users/{{$blog->user->name}}">{{$blog->user->name}}</a></p>
        
         published at - {{$blog->created_at->diffForHumans()}}
     </div>
