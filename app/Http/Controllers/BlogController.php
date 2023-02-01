@@ -14,8 +14,8 @@ class BlogController extends Controller
             $blogs = Blog::with('category')->get();
             return view('blogs', [
 
-                'blogs' => $blogs
-
+                'blogs' => $blogs,
+                
             ]);
         
     }
@@ -25,7 +25,9 @@ class BlogController extends Controller
        
 
             return view('blog', [
-                'blog' => $blog
+                'blog' => $blog,
+                'randomBlogs' => Blog::inRandomOrder()->take(3)->get()
+
 
             ]);
         

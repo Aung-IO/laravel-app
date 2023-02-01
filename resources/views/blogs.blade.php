@@ -1,27 +1,5 @@
 <x-layout>
-
-
-
-    <x-slot:title>
-        <title>Home</title>
-    </x-slot:title>
-
-
-
-    @foreach($blogs as $blog)
-    <div class="container">
-        <h1>
-            <a href="blogs/{{$blog->slug}}">{{$blog->title}} </a>
-        </h1>
-
-        <p>Category - <a href="/categories/{{$blog->category->name}}">{{$blog->category->name}}</a></p>
-
-        <p>{{$blog->body}}</p>
-
-        <p>Uploaded by - <a href="/users/{{$blog->user->name}}">{{$blog->user->name}}</a></p>
-       
-        published at - {{$blog->created_at->diffForHumans()}}
-    </div>
-    @endforeach
-
+    <x-hero />
+    <x-blogs-section :blogs="$blogs" />
+    <x-subscribe />
 </x-layout>
