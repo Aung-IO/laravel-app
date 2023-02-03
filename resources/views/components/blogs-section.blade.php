@@ -11,7 +11,7 @@
 
         @foreach ($categories as $category)
         <li>
-          <a class="dropdown-item" href="/categories/{{$category->slug}}">
+          <a class="dropdown-item" href="/?category={{$category->slug}}">
             {{$category->name}}
           </a>
         </li>
@@ -24,19 +24,24 @@
       <option value="">Filter by Tag</option>
     </select> -->
   </div>
-  <form action="" class="my-3">
+  <form action="/" method="GET" class="my-3">
     <div class="input-group mb-3">
-      <input type="text" autocomplete="false" class="form-control" placeholder="Search Blogs..." />
+      <input name="search"
+      value="{{request('search')}}"
+      type="text" autocomplete="false" class="form-control" placeholder="Search Blogs..." />
       <button class="input-group-text bg-primary text-light" id="basic-addon2" type="submit">
         Search
       </button>
     </div>
   </form>
   <div class="row">
-    @foreach ($blogs as $blog)
+    @forelse ($blogs as $blog)
     <div class="col-md-4 mb-4">
       <x-blog-card :blog="$blog" />
     </div>
-    @endforeach
+    @empty
+    
+    <p>{{request('search')}} not found..</p>
+    @endforelse
   </div>
 </section>
