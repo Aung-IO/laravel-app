@@ -12,17 +12,14 @@ class BlogController extends Controller
 {
     public function index()
     {
-
-        $blogs = Blog::with('category')->latest()->get();
-
-
+       
         return view('blogs', [
 
-            'blogs' => $blogs,
+            'blogs' => Blog::latest()->filter(request(['search','category','user']))->get(),
             'categories' => Category::all()
 
         ]);
-    }
+    } 
 
     public function show(Blog $blog)
     {
