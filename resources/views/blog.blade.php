@@ -1,3 +1,4 @@
+
 <x-layout>
 
     <!-- single blog section -->
@@ -10,7 +11,14 @@
             alt="..."
           />
           <h3 class="my-3">{{$blog->title}}</h3>
-          <p class="lh-md">
+          <div> Author - 
+          <a href="/users/{{$blog->user->name}}">{{$blog->user->name}}</a>
+          </div>
+          <div > <a href="/categories/{{$blog->category->slug}}">
+            <span class="badge bg-primary mt-3">category - {{$blog->category->name}}</span></a>
+           </div>
+          <div class="text-secondary"> Uploaded - {{$blog->created_at->diffForHumans()}}</div>
+          <p class="lh-md mt-3">
            {{$blog->body}}
           </p>
         </div>
@@ -20,7 +28,5 @@
 
 <x-subscribe/>
 
-<x-blogs-like :randomBlogs ="randomBlogs"/>
-
-
+<x-blogs_you_may_like_section :randomBlogs="$randomBlogs"/>
     </x-layout>
