@@ -8,7 +8,7 @@
             <div class="card-body">
               <h3 class="card-title">{{$blog->title}}</h3>
               <p class="fs-6 text-secondary">
-                <a href="/users/{{$blog->user->name}}"> {{$blog->user->name}}</a>
+                <a href="/?user={{$blog->user->name}}"> {{$blog->user->name}}</a>
                
                 <span> {{$blog->created_at->diffForHumans()}}</span>
               </p>
