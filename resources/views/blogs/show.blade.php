@@ -12,7 +12,7 @@
           />
           <h3 class="my-3">{{$blog->title}}</h3>
           <div> Author - 
-          <a href="/users/{{$blog->user->name}}">{{$blog->user->name}}</a>
+          <a href="/?author={{$blog->user->name}}">{{$blog->user->name}}</a>
           </div>
           <div > <a href="/categories/{{$blog->category->slug}}">
             <span class="badge bg-primary mt-3">category - {{$blog->category->name}}</span></a>

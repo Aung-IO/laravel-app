@@ -15,3 +15,4 @@ Route::get('/blogs/{blog:slug}', [BlogController::class,'show'])->where('slug', 
 
 Route::get('/users/{user:name}', [UserController::class, 'index'])->where('name', '[A-z\d\-_]+');
 
+                       
