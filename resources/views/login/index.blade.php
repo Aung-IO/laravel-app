@@ -2,21 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 mx-auto">
-                <h3 class="text-primary text-center my-3">Register Form</h3>
+                <h3 class="text-primary text-center my-3">Login Form</h3>
                 <div class="card p-4 my-3 shadow p-3 mb-5 bg-body-tertiary rounded">
                 <form
                 method="post"
-                action="/register"
+                action="/login"
                 >
                 @csrf
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Name</label>
-                        <input name="name" type="name" value="{{old('name')}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                      @error('name')
-                      <p class="text-danger my-2">{{$message}}</p>
-                      @enderror
-                    </div>
-                  
+                   
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
                         <input name="email" type="email" value="{{old('email')}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -33,7 +26,7 @@
                       @enderror
                     </div>
                    
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
                 </form>
                 </div>
             </div>

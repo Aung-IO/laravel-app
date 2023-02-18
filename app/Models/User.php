@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
 //             return $this->hasMany(Blog::class);
 //         }
 // }
-class User extends Model
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -58,7 +58,18 @@ class User extends Model
     {
         return $this->hasMany(Blog::class);
     }
-   
+
+    //mutator
+    public function setPasswordAttribute($value)
+    {
+
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+    //accessor
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = ucfirst($value); // uppercase to name
+    
+    }
 }
-
-
