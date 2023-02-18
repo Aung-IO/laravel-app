@@ -24,7 +24,8 @@
         </div>
       </div>
     </div>
-
+    
+ <x-comments/>
 
 <x-subscribe/>
 

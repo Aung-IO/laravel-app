@@ -9,13 +9,17 @@
                 action="/login"
                 >
                 @csrf
-                   
+                  
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
                         <input name="email" type="email" value="{{old('email')}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         @error('email')
                       <p class="text-danger my-2">{{$message}}</p>
                       @enderror
+
+                      
+                          
+                      
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
