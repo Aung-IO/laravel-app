@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -22,5 +23,8 @@ Route::get('/login',[AuthController::class, 'login'])->middleware('guest');
 Route::post('/login', [AuthController::class, 'loginStore']);
 
 Route::post('/logout', [AuthController::class,'logout']);
+
+//comment
+Route::post('/blogs/{blog:slug}/comments', [CommentController::class, 'store'])->name('blogs.comments.store');
 
 

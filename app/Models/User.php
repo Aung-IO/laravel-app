@@ -2,23 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-//use Tests\Fixtures\Model;
-use Illuminate\Database\Eloquent\Model;
 
 
-// class User extends Model
-// {
-//     use HasFactory;
-//     public function blogs()
-//         {
-//             return $this->hasMany(Blog::class);
-//         }
-// }
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -67,9 +57,15 @@ class User extends Authenticatable
     }
 
     //accessor
-    public function setNameAttribute($value)
+    public function getNameAttribute($value)
     {
-        $this->attributes['name'] = ucfirst($value); // uppercase to name
-    
+        return ucfirst($value); //uppercase
+    }
+
+    public function getProfileAttribute($value)
+    {
+       
+       //return $value ? $value : "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-image-icon-default-avatar-profile-icon-social-media-user-vector-image-209162840.jpg";
+    return $value ? $value : "/images/default_profile_pic.jpg";
     }
 }
