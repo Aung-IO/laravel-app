@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\Client\Request;
 
 
 
@@ -21,7 +22,9 @@ class AuthController extends Controller
     {
 
         if (auth()->attempt(['email' => request('email'), 'password' => request('password')])) {
-            return redirect('/')->with('success', 'welcome back');
+          return redirect('/')->with('success', 'welcome back');
+        
+           //return redirect()->intended($this->redirectPath())->with('success', 'welcome back');
         }
         return back()->withErrors([
             'email' => 'Email does not exits',

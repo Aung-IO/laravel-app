@@ -8,6 +8,7 @@
             <div class="row">
 
                 {{-- show comment --}}
+                @if ($comments->count())
                 <div class="col-sm-5 col-md-6 col-12 pb-4">
                     <div class="col-md-8  mx-auto">
                         <h5 class="my-3 text-secondary">Comments ({{ $comments->count() }})</h5>
@@ -16,6 +17,7 @@
                         @endforeach
                     </div>
                 </div>
+                @endif
                 {{-- show comment --}}
 
                 {{-- post comment --}}
