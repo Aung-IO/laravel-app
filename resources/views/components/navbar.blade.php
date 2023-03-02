@@ -5,7 +5,7 @@
       <a href="/" class="nav-link">{{auth()->user()?->name}}</a>
       <a href="/" class="nav-link">Home</a>
       <a href="/#blogs" class="nav-link">Blogs</a>
-      <a href="#subscribe" class="nav-link">Subscribe</a>
+      
 
       @if (auth()->check())
       <form action="/logout" method="post">

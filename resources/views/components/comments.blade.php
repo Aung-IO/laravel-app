@@ -16,8 +16,10 @@
                             <x-single-comment :comment="$comment" />
                         @endforeach
                     </div>
+                    {{$comments->links()}}
                 </div>
                 @endif
+               
                 {{-- show comment --}}
 
                 {{-- post comment --}}

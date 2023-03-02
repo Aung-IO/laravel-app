@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -27,4 +28,5 @@ Route::post('/logout', [AuthController::class,'logout']);
 //comment
 Route::post('/blogs/{blog:slug}/comments', [CommentController::class, 'store'])->name('blogs.comments.store');
 
-
+//subscription route
+Route::post('/blogs/{blog:slug}/subscription', [SubscriptionController::class, 'toggleSubscription']);
