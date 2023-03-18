@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\AdminMiddleware;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 
@@ -30,3 +33,7 @@ Route::post('/blogs/{blog:slug}/comments', [CommentController::class, 'store'])-
 
 //subscription route
 Route::post('/blogs/{blog:slug}/subscription', [SubscriptionController::class, 'toggleSubscription']);
+
+Route::get('/admin', [AdminBlogController::class, 'index'])->middleware('admin');
+
+Route::post('/admin/blogs', [AdminBlogController::class, 'store']);
